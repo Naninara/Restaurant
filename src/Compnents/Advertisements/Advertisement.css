@@ -3,7 +3,7 @@
   justify-content: space-evenly;
   flex-wrap: wrap;
   align-items: center;
-  width: 100%;
+  width: 100vw;
 }
 .add .content {
   display: flex;
@@ -32,5 +32,10 @@
 @media only screen and (max-width: 600px) {
   .add {
     width: 150%;
+  }
+}
+@media only screen and (max-width: 450px) {
+  .add {
+    margin-left: 60px;
   }
 }

@@ -40,11 +40,11 @@
   left: 0px;
   bottom: -43px;
 }
-
 @media only screen and (max-width: 600px) {
   .landing {
     width: 150%;
   }
+
   .input-text {
     width: 400px;
   }
@@ -66,6 +66,19 @@
     position: absolute;
     right: 0px;
     top: 50px;
+    width: 200px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .landing {
+    width: 195% !important;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .landing .landing1 {
+    position: absolute;
+    right: 0px;
+    top: 0px;
     width: 200px;
   }
 }
