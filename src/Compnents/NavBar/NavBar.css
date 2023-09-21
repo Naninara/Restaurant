@@ -1,63 +1,24 @@
-#navbar-container {
+.toolbar {
   display: flex;
-  width: 100%;
-  padding: 30px 64px;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 30px;
-  background: #1a120b;
-  position: sticky;
-  top: 0;
-  z-index: 999;
-}
-
-#navbar-container .nav-content {
-  display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  align-self: stretch;
+  height: 30px;
+  position: fixed;
 }
 
-#navbar-container .logo {
-  color: #fff;
-  font-family: Roboto mono;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
-#navbar-container .nav-navigation {
+.right {
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 50px;
-  position: inherit;
-  left: 321px;
-  top: 7px;
+  gap: 20px;
 }
 
-#navbar-container .nav-navigation li {
-  color: #fff;
-  font-family: Roboto mono;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  list-style-type: none;
+.toolbar {
+  background-color: black;
 }
 
-#navbar-container .nav-login {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 50px;
-}
-
-#navbar-container .nav-login span {
-  color: #fff;
-  font-family: Roboto mono;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
+.toolbar span {
+  font-size: 20px;
+  font-family: montserrat;
 }

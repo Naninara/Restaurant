@@ -1,26 +1,28 @@
 .landing {
   background-image: url("https://res.cloudinary.com/dggryzgok/image/upload/v1695195020/landingbg.jpg");
-  height: 700px;
+  height: 80vh;
   width: 100%;
   position: relative;
   display: flex;
+  flex-wrap: nowrap;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 30px;
 }
+
 .landing h1 {
   color: #fff;
-  font-family: Roboto;
+  font-family: montserrat;
   font-size: 47px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
 }
 .input-text {
-  width: 536px;
   border-radius: 100px;
   height: 55px;
+  width: 560px;
 }
 
 .landing .landing1 {
@@ -37,4 +39,33 @@
   position: absolute;
   left: 0px;
   bottom: -43px;
+}
+
+@media only screen and (max-width: 600px) {
+  .landing {
+    width: 150%;
+  }
+  .input-text {
+    width: 400px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .landing .landing2 {
+    position: absolute;
+    right: 0;
+    width: 100px;
+  }
+  .landing .landing3 {
+    position: absolute;
+    left: 0px;
+    bottom: -22px;
+    width: 150px;
+  }
+  .landing .landing1 {
+    position: absolute;
+    right: 0px;
+    top: 50px;
+    width: 200px;
+  }
 }

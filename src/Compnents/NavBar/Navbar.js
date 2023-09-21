@@ -1,23 +1,21 @@
 import React from "react";
 import "./NavBar.css";
+import { AppBar, Toolbar, Typography } from "@mui/material";
+import { ShoppingCart } from "@mui/icons-material";
 function Navbar() {
   return (
-    <div id="navbar-container">
-      <div className="nav-content">
-        <span className="logo">LOGO</span>
-        <div className="nav-navigation">
-          <li>Home</li>
-          <li>About</li>
-          <li>Restaurent</li>
-          <li>Process</li>
-          <li>Conatct Us</li>
+    <AppBar sx={{ position: "fixed", top: 0, zIndex: 999 }}>
+      <Toolbar className="toolbar">
+        <div>
+          <Typography variant="span">LOGO</Typography>
         </div>
-        <div className="nav-login">
-          <span>Login</span>
-          <span>Sign Up</span>
+        <div className="right">
+          <Typography variant="span">Login</Typography>
+          <Typography variant="span">Restarents</Typography>
+          <ShoppingCart />
         </div>
-      </div>
-    </div>
+      </Toolbar>
+    </AppBar>
   );
 }
 

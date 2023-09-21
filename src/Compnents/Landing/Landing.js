@@ -6,7 +6,10 @@ import { FmdGood } from "@mui/icons-material";
 function Landing() {
   return (
     <div className="landing">
-      <h1>Fresh,Fast, and Powerful</h1>
+      <h1>
+        Hungry.?
+        <br /> We got you..🫂
+      </h1>
       <TextField
         className="input-text"
         label="enter your location"

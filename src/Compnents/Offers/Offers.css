@@ -1,0 +1,8 @@
+.offers-heading {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.offers {
+  margin-top: 50px;
+}
