@@ -5,6 +5,7 @@
   align-items: center;
   height: 30px;
   position: fixed;
+  text-decoration: non;
 }
 
 .right {
@@ -21,4 +22,8 @@
 .toolbar span {
   font-size: 20px;
   font-family: montserrat;
+}
+.toolbar a {
+  text-decoration: none;
+  color: #fff;
 }
