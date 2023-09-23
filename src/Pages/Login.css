@@ -1,0 +1,43 @@
+.login {
+  width: 100%;
+  display: flex;
+  margin-top: 50px;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.login .login-content {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+  margin: 50px 80px;
+}
+
+.login .button-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login img {
+  width: inherit;
+}
+.data-content {
+  width: 100%;
+}
+
+@media screen and (max-width: 320px) {
+  .login {
+    flex-wrap: wrap;
+    margin: 0px 0px;
+    display: flex;
+  }
+  .login img {
+    display: none;
+  }
+  .login .login-content {
+    margin: 80px 0px;
+    flex-wrap: wrap;
+  }
+}

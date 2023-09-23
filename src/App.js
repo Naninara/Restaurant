@@ -1,3 +1,4 @@
+import Login from "./Pages/Login";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import "./App.css";
 
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: "/restarents",
         element: <Restaurents />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
       },
     ],
   },
