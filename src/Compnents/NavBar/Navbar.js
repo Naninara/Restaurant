@@ -13,7 +13,9 @@ function Navbar() {
           </Link>
         </div>
         <div className="right">
-          <Typography variant="span">Login</Typography>
+          <Link to="/login">
+            <Typography variant="span">Login</Typography>
+          </Link>
           <Link to="/restarents">
             <Typography variant="span">Restarents</Typography>
           </Link>
