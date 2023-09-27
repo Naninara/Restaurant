@@ -6,6 +6,7 @@ import Navbar from "./Compnents/NavBar/Navbar";
 
 import HomePage from "./Pages/HomePage";
 import Restaurents from "./Pages/Restaurents";
+import Register from "./Pages/Register";
 const Layout = () => {
   return (
     <div className="App">
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
       },
     ],
   },

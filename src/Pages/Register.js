@@ -1,22 +1,13 @@
 import { Button, TextField, Typography } from "@mui/material";
-import LogoImage from "../Assets/Login.png";
+
 import React from "react";
-import "./Login.css";
+import "./Register.css";
 import { Link } from "react-router-dom";
-function Login() {
+function Register() {
   return (
-    <div className="login">
-      <div className="login-content">
-        <div className="data-content">
-          <Typography
-            variant="span"
-            color="#000000"
-            fontSize={"48px"}
-            fontWeight="700"
-            fontFamily="Montserrat"
-          >
-            Welcome
-          </Typography>
+    <div className="register">
+      <div className="register-content">
+        <div className="register-content">
           <Typography
             variant="span"
             color="#D55826"
@@ -25,7 +16,7 @@ function Login() {
             fontFamily="Montserrat"
             sx={{ marginLeft: "20px" }}
           >
-            Back
+            Welcome to Foodier
           </Typography>
         </div>
         <Typography
@@ -35,7 +26,7 @@ function Login() {
           fontWeight="400"
           fontFamily="Montserrat"
         >
-          Login with your email address and Password
+          We Deliver your Hunger
         </Typography>
 
         <Typography
@@ -55,6 +46,7 @@ function Login() {
           size="small"
           type="email"
         ></TextField>
+
         <Typography
           variant="span"
           color="rgba(26, 18, 11, 0.90)"
@@ -75,41 +67,27 @@ function Login() {
         <Typography
           variant="span"
           color="rgba(26, 18, 11, 0.90)"
-          fontSize={"20px"}
+          fontSize={"32px"}
           fontWeight="700"
           fontFamily="Montserrat"
         >
-          Forgot Password?
+          Confirm Password
         </Typography>
+
+        <TextField
+          className="input-text"
+          label="Enter your password"
+          variant="outlined"
+          size="small"
+          type="password"
+        ></TextField>
+
         <div className="button-div">
-          <Button className="cat-button">Login</Button>
+          <Button className="cat-button">Sign Up</Button>
         </div>
-        <div className="button-div">
-          <Typography
-            variant="span"
-            color="#5D5D5D"
-            fontSize={"24px"}
-            fontWeight="400"
-            fontFamily="Montserrat"
-          >
-            Don't Have Account
-          </Typography>
-          <Typography
-            variant="span"
-            fontSize={"30px"}
-            fontWeight="700"
-            fontFamily="Montserrat"
-            sx={{ marginLeft: "20px" }}
-          >
-            <Link to="/register">Signup</Link>
-          </Typography>
-        </div>
-      </div>
-      <div>
-        <img src={LogoImage} alt="loginimage" />
       </div>
     </div>
   );
 }
 
-export default Login;
+export default Register;

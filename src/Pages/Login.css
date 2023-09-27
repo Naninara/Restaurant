@@ -5,6 +5,10 @@
   gap: 20px;
   justify-content: space-between;
 }
+.login a {
+  text-decoration: none;
+  color: #d55826;
+}
 
 .login .login-content {
   display: inline-flex;
@@ -27,7 +31,7 @@
   width: 100%;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 400px) {
   .login {
     flex-wrap: wrap;
     margin: 0px 0px;
