@@ -7,6 +7,7 @@ import Navbar from "./Compnents/NavBar/Navbar";
 import HomePage from "./Pages/HomePage";
 import Restaurents from "./Pages/Restaurents";
 import Register from "./Pages/Register";
+import SingleRestarent from "./Compnents/SingleRestaurent/SingleRestarent";
 const Layout = () => {
   return (
     <div className="App">
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: "restarents/single/:id",
+        element: <SingleRestarent />,
       },
     ],
   },

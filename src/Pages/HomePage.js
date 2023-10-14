@@ -1,14 +1,13 @@
 import React from "react";
-import Landing from "../Compnents/Landing/Landing";
-import Advertisement from "../Compnents/Advertisements/Advertisement";
-import Offers from "../Compnents/Offers/Offers";
+import Home from "../Compnents/Home/Home";
+import ShowCase from "../Compnents/Advertisement/Showcase";
+import About from "../Compnents/About/About";
 function HomePage() {
   return (
     <div>
-      {" "}
-      <Landing />
-      <Advertisement />
-      <Offers />
+      <Home />
+      <ShowCase />
+      <About />
     </div>
   );
 }

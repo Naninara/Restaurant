@@ -1,9 +1,28 @@
-import { Button, TextField, Typography } from "@mui/material";
+import { TextField, Typography } from "@mui/material";
 import LogoImage from "../Assets/Login.png";
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import "./Login.css";
 import { Link } from "react-router-dom";
 function Login() {
+  const [LoginData, setLoginData] = useState({ email: "", pass: "" });
+  const [loginResponse, setLoginResponse] = useState(null);
+
+  function SubmitLogin() {
+    axios
+      .post("http://localhost:3500/auth/login", { ...LoginData })
+      .then((response) => {
+        setLoginResponse(response.data);
+      })
+      .catch((err) => {
+        if (!err.response) {
+          setLoginResponse({ msg: "something Wrong From our side " });
+        }
+        if (err.response && err.response.status === 401) {
+          setLoginResponse({ msg: "Invalid Credintials" });
+        }
+      });
+  }
   return (
     <div className="login">
       <div className="login-content">
@@ -34,9 +53,22 @@ function Login() {
           fontSize={"24px"}
           fontWeight="400"
           fontFamily="Montserrat"
+          className="emailspan"
         >
           Login with your email address and Password
         </Typography>
+
+        {loginResponse && (
+          <Typography
+            variant="span"
+            color="#5D5D5D"
+            fontSize={"24px"}
+            fontWeight="400"
+            fontFamily="Montserrat"
+          >
+            {loginResponse.msg}
+          </Typography>
+        )}
 
         <Typography
           variant="span"
@@ -54,6 +86,12 @@ function Login() {
           variant="outlined"
           size="small"
           type="email"
+          onChange={(e) => {
+            setLoginData((prevState) => ({
+              ...prevState,
+              email: e.target.value,
+            }));
+          }}
         ></TextField>
         <Typography
           variant="span"
@@ -71,6 +109,12 @@ function Login() {
           variant="outlined"
           size="small"
           type="password"
+          onChange={(e) => {
+            setLoginData((prevState) => ({
+              ...prevState,
+              pass: e.target.value,
+            }));
+          }}
         ></TextField>
         <Typography
           variant="span"
@@ -82,7 +126,9 @@ function Login() {
           Forgot Password?
         </Typography>
         <div className="button-div">
-          <Button className="cat-button">Login</Button>
+          <button className="btn" onClick={SubmitLogin}>
+            Login
+          </button>
         </div>
         <div className="button-div">
           <Typography

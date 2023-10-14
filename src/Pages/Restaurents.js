@@ -1,173 +1,35 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import RestarentCard from "../Compnents/Cards/RestarentCard";
+import WifiLoader from "../Compnents/Loaders/WifiLoader";
 import "./Restaurents.css";
 function Restaurents() {
-  const data = [
-    {
-      id: "458205",
-      name: "KFC",
-      cloudinaryImageId: "bdcd233971b7c81bf77e1fa4471280eb",
-      locality: "Suryaraopet",
-      areaName: "Kakinada",
-      costForTwo: "₹400 for two",
-      cuisines: ["Burgers", "Biryani", "American", "Snacks", "Fast Food"],
-      avgRating: 4,
-    },
-    {
-      id: "564408",
-      name: "Prakash Tiffins & Veg Meals",
-      cloudinaryImageId: "lhhj44yceu147tz6naw8",
-      locality: "Bhanugudi",
-      areaName: "Sarpavaram",
-      costForTwo: "₹150 for two",
-      cuisines: ["South Indian", "Beverages"],
-      avgRating: 3.5,
-    },
-    {
-      id: "593339",
-      name: "CakeZone - Premium Neighbourhood Bakery",
-      cloudinaryImageId: "810c2b060ab0bd52df4c4e1e6523de43",
-      locality: "Bhanugudi",
-      areaName: "Bhanugudi",
-      costForTwo: "₹200 for two",
-      cuisines: ["Bakery", "Desserts", "Sweets", "Ice Cream"],
-      avgRating: 3.9,
-    },
-    {
-      id: "593340",
-      name: "The Dessert Heaven - Pure Veg",
-      cloudinaryImageId: "f8444d7cae255853b190e76a2c2dcda7",
-      locality: "Bhanugudi",
-      areaName: "Bhanugudi",
-      costForTwo: "₹200 for two",
-      cuisines: ["Bakery", "Desserts", "Sweets", "Ice Cream"],
-      avgRating: 4,
-      veg: true,
-    },
-    {
-      id: "400786",
-      name: "MAHA'S KITCHEN",
-      cloudinaryImageId: "7814a0e0b947658eb3065fff03f5a02c",
-      locality: "Bhanugudi",
-      areaName: "Bhanugudi",
-      costForTwo: "₹300 for two",
-      cuisines: ["Biryani", "Indian"],
-      avgRating: 3.8,
-    },
-    {
-      id: "421165",
-      name: "1980s Village Foods",
-      cloudinaryImageId: "he5k0mqfjdsouasqrnz9",
-      locality: "Bhanugudi",
-      areaName: "Bhanugudi",
-      costForTwo: "₹300 for two",
-      cuisines: ["Snacks", "Sweets", "Indian"],
-      avgRating: 3.4,
-    },
-    {
-      id: "418848",
-      name: "HOUSE OF POPS",
-      cloudinaryImageId: "hmmu1pgajtvzhmkoidk9",
-      locality: "Bhanugudi",
-      areaName: "Bhanugudi",
-      costForTwo: "₹250 for two",
-      cuisines: ["Ice Cream"],
-      veg: true,
-    },
-    {
-      id: "237670",
-      name: "McDonald's",
-      cloudinaryImageId: "a67415c0b9d0815b44820c1083f4531a",
-      locality: "EAST SRMT Mall and Multplex",
-      areaName: "Lalitha Nagar",
-      costForTwo: "₹400 for two",
-      cuisines: ["Burgers", "Beverages", "Cafe", "Desserts"],
-      avgRating: 4.1,
-    },
-    {
-      id: "369452",
-      name: "NIC Ice Creams",
-      cloudinaryImageId: "91d6dda411b108965541c16ac1cfe2bc",
-      locality: "SURYARAOPET",
-      areaName: "Rama Rao Peta",
-      costForTwo: "₹120 for two",
-      cuisines: ["Ice Cream", "Desserts"],
-      avgRating: 4.4,
-      veg: true,
-    },
-    {
-      id: "593381",
-      name: "Cheesecakes By CakeZone",
-      cloudinaryImageId: "41ed60ce5ed96b212bdf9c45a09b7e92",
-      locality: "Bhanugudi",
-      areaName: "Bhanugudi",
-      costForTwo: "₹200 for two",
-      cuisines: ["Bakery", "Desserts"],
-      avgRating: 3.9,
-    },
-    {
-      id: "557731",
-      name: "Pizza Stories",
-      cloudinaryImageId: "lz5nfjkwvzxeqkju2s65",
-      locality: "Bhanugudi",
-      areaName: "Bhanugudi",
-      costForTwo: "₹300 for two",
-      cuisines: ["Pizzas"],
-      avgRating: 3.9,
-    },
-    {
-      id: "557793",
-      name: "HAPPY BURGER",
-      cloudinaryImageId: "kfybtgljjiluont4vesv",
-      locality: "Bhanugudi",
-      areaName: "Bhanugudi",
-      costForTwo: "₹300 for two",
-      cuisines: ["Burgers"],
-      avgRating: 3.9,
-    },
-    {
-      id: "300369",
-      name: "Barbeque Nation",
-      cloudinaryImageId: "uqypj9dbadie0nxwzlhi",
-      locality: "SRMT Mall",
-      areaName: "Lalitha Nagar",
-      costForTwo: "₹600 for two",
-      cuisines: [
-        "North Indian",
-        "Barbecue",
-        "Biryani",
-        "Kebabs",
-        "Mughlai",
-        "Desserts",
-      ],
-      avgRating: 3.2,
-    },
-    {
-      id: "233029",
-      name: "F - Square ( Container Restaurant )",
-      cloudinaryImageId: "srgisdsgtft5jfehkkcq",
-      locality: "Bhanugudi",
-      areaName: "Ramanayapeta",
-      costForTwo: "₹200 for two",
-      cuisines: ["Biryani", "Chinese", "North Indian"],
-      avgRating: 3.8,
-    },
-    {
-      id: "376286",
-      name: "Shakes & Bites",
-      cloudinaryImageId: "asbvzro36ftdxnvk85an",
-      locality: "Bhanugudi",
-      areaName: "Ramanayapeta",
-      costForTwo: "₹250 for two",
-      cuisines: ["Ice Cream", "Juices", "European"],
-      avgRating: 4.4,
-    },
-  ];
-
-  return (
+  const [Restaurents, setRestauRents] = useState([]);
+  useEffect(() => {
+    axios
+      .get("http://localhost:3500/restarent")
+      .then((response) => {
+        setRestauRents(response.data);
+      })
+      .catch((err) => {
+        if (!err.response) {
+          alert("server not working");
+        } else {
+          alert("something went wrong");
+        }
+      });
+  }, []);
+  return Restaurents.length === 0 ? (
+    <WifiLoader />
+  ) : (
     <div className="restarents">
-      {data.map((cardItem) => {
-        return <RestarentCard {...cardItem} />;
+      {Restaurents.map((cardItem) => {
+        return (
+          <Link to={`single/${cardItem.id}`}>
+            <RestarentCard {...cardItem} key={cardItem.id} />
+          </Link>
+        );
       })}
     </div>
   );

@@ -1,7 +1,7 @@
 .login {
   width: 100%;
   display: flex;
-  margin-top: 50px;
+
   gap: 20px;
   justify-content: space-between;
 }
@@ -31,17 +31,29 @@
   width: 100%;
 }
 
+.cat-button {
+  color: #fff;
+  padding: 15px 35px;
+  border-radius: 32px;
+  background: #ff5733;
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+  font-size: 16px;
+  cursor: pointer;
+}
 @media screen and (max-width: 400px) {
   .login {
     flex-wrap: wrap;
-    margin: 0px 0px;
+    margin: 0px;
     display: flex;
   }
   .login img {
     display: none;
   }
   .login .login-content {
-    margin: 80px 0px;
+    margin: 30px;
     flex-wrap: wrap;
+  }
+  .login span {
+    font-size: 20px;
   }
 }

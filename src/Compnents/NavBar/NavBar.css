@@ -1,29 +1,94 @@
-.toolbar {
+.navbar {
+  /* background-color: red; */
+  background-color: var(--black);
+  color: #fff;
+  width: 100%;
+}
+.navbar a.logo {
+  color: #fff;
+  text-decoration: none;
+}
+.navbar a.logo h1 {
+  font-family: "Montserrat";
+}
+.navbar a {
+  font-family: "Montserrat";
+}
+.navbar header nav {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  height: 30px;
-  position: fixed;
-  text-decoration: non;
-}
-
-.right {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 20px;
-}
-
-.toolbar {
+  padding: 20px 64px;
   background-color: black;
 }
-
-.toolbar span {
-  font-size: 20px;
-  font-family: montserrat;
+svg {
+  fill: #fff;
 }
-.toolbar a {
-  text-decoration: none;
+.navbar #links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+.mobile {
+  display: none;
+}
+.navbar #links a {
   color: #fff;
+  text-decoration: none;
+  position: relative;
+}
+.navbar #links a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  bottom: -2px;
+  left: 0;
+  height: 2px;
+  background-color: white;
+  transition: width 0.3s;
+  transform-origin: left;
+}
+.navbar #links a:hover::after {
+  width: 100%;
+}
+
+@media screen and (max-width: 480px) {
+  .nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  .navbar #links,
+  #links.nav {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 10px;
+    background-color: var(--black);
+    /* background-color: red; */
+    top: 62px;
+    left: -150%;
+    z-index: 99;
+    padding: 20px 40px;
+    text-align: center;
+    margin-top: 10px;
+  }
+  #links.nav-active {
+    left: 0%;
+    background-color: black;
+  }
+  .mobile {
+    display: block;
+  }
+  a {
+    text-decoration: none;
+    color: var(--btn-color);
+    font-weight: 500;
+    position: relative;
+  }
 }

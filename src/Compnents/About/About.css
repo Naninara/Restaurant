@@ -1,0 +1,51 @@
+.about {
+  padding: 10px 20px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+.left {
+  display: flex;
+  width: 40%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.left h1 {
+  font-size: 40px;
+  text-align: center;
+}
+.right {
+  width: 60%;
+}
+.right svg {
+  z-index: -1;
+  position: absolute;
+  right: -60px;
+  bottom: 0px;
+  height: 580px;
+}
+.right .content {
+  width: 600px;
+  transform: translate(40px, -60px);
+  font-size: 14px;
+}
+.burger {
+  height: 500px;
+}
+.btn-kn {
+  margin-top: 20px;
+  padding: 10px 30px;
+  background-color: #fff;
+  color: #ff5733;
+}
+
+@media screen and (max-width: 480px) {
+  .about {
+    /* height: 100vh; */
+    display: none;
+  }
+  .left {
+    display: none;
+  }
+}
