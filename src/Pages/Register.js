@@ -84,6 +84,7 @@ function Register() {
             size="small"
             type="email"
             name="email"
+            required
             onChange={(e) => {
               handleChange(e);
             }}
@@ -154,7 +155,7 @@ function Register() {
           ></TextField>
 
           <div className="button-div">
-            <button className="btn" onClick={UserRegister}>
+            <button className="btn" onClick={UserRegister} type="submit">
               Sign Up
             </button>
           </div>
