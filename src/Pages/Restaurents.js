@@ -24,10 +24,10 @@ function Restaurents() {
     <WifiLoader />
   ) : (
     <div className="restarents">
-      {Restaurents.map((cardItem) => {
+      {Restaurents.map((cardItem, index) => {
         return (
-          <Link to={`single/${cardItem.id}`}>
-            <RestarentCard {...cardItem} key={cardItem.id} />
+          <Link to={`single/${cardItem.id}`} key={index + 1}>
+            <RestarentCard {...cardItem} />
           </Link>
         );
       })}

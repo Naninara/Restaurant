@@ -152,7 +152,7 @@ function Login() {
         </div>
       </div>
       <div>
-        <img src={LogoImage} alt="loginimage" />
+        <img src={LogoImage} alt="loginimage" className="loginimg" />
       </div>
     </div>
   );

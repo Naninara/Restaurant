@@ -8,6 +8,7 @@ import HomePage from "./Pages/HomePage";
 import Restaurents from "./Pages/Restaurents";
 import Register from "./Pages/Register";
 import SingleRestarent from "./Compnents/SingleRestaurent/SingleRestarent";
+import CuisinePage from "./Pages/CuisinePage";
 const Layout = () => {
   return (
     <div className="App">
@@ -40,6 +41,14 @@ const router = createBrowserRouter([
       },
       {
         path: "restarents/single/:id",
+        element: <SingleRestarent />,
+      },
+      {
+        path: "cuisine/:name",
+        element: <CuisinePage />,
+      },
+      {
+        path: "cuisine/:name/single/:id",
         element: <SingleRestarent />,
       },
     ],

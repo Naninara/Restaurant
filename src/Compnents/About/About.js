@@ -1,6 +1,6 @@
 import React from "react";
 import "./About.css";
-import burger from "../../Assets/burger.png";
+
 const shape = (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -23,7 +23,11 @@ const About = () => {
         <h1>
           About <span style={{ color: "#FF5733" }}>Us</span>
         </h1>
-        <img src={burger} className="burger" alt="burger" />
+        <img
+          src="https://res-console.cloudinary.com/dggryzgok/thumbnails/transform/v1/image/upload/Yl9hdXRvOnByZWRvbWluYW50LGNfcGFkLGhfMzAwLHdfMzAwLGZfanBnLGZsX2xvc3N5LmFueV9mb3JtYXQucHJlc2VydmVfdHJhbnNwYXJlbmN5LnByb2dyZXNzaXZl/v1/UmVzdGF1cmVudEFzc2VzdHMvcHc2Z3hyczhqcnNuOW14cGRjbmM=/template_primary"
+          className="burger"
+          alt="burger"
+        />
       </div>
       <div className="right">
         {shape}

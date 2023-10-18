@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import "./NavBar.css";
+import { ShoppingCart } from "@mui/icons-material";
 const close = (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -36,17 +37,22 @@ const Navbar = () => {
             <Link className="logo" to="/">
               <h1>LOGO.</h1>
             </Link>
-            <div onClick={handleClick} className="mobile">
-              {isOpen ? close : menu}
+
+            <div className="cartdiv">
+              <div onClick={handleClick} className="mobile">
+                {isOpen ? close : menu}
+              </div>
             </div>
           </div>
+
           <div className={isOpen ? "nav-active" : "nav"} id="links">
             <Link to="/">Home</Link>
-            <Link to="/">About</Link>
+
             <Link to="/restarents">Restaurant</Link>
 
             <Link to="/login">Login</Link>
             <Link to="/register">SignUp</Link>
+            <ShoppingCart />
           </div>
         </nav>
       </header>

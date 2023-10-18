@@ -1,0 +1,36 @@
+.cuisineHeader {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  margin: 30px 0px;
+}
+
+.cuisineHeader .span1 {
+  margin-right: 10px;
+  font-size: 40px;
+  font-weight: 600;
+  font-family: "Montserrat";
+}
+
+.cuisineHeader .span2 {
+  margin-right: 10px;
+  font-size: 40px;
+  font-weight: 600;
+  font-family: "Montserrat";
+  color: #ff5733;
+}
+
+.cuisines {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 450px) {
+  .cuisineHeader .span2 {
+    font-size: 25px;
+  }
+  .cuisineHeader .span1 {
+    font-size: 25px;
+  }
+}

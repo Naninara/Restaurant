@@ -1,7 +1,6 @@
 import React from "react";
 import "./Home.css";
-import chicken from "../../Assets/chicken_kavab.png";
-import somosa from "../../Assets/somosa.png";
+
 const location = (
   <svg
     width="21"
@@ -41,8 +40,16 @@ const arrow = (
 const Home = () => {
   return (
     <div className="home">
-      <img src={chicken} className="img-1 img" alt="Chicken" />
-      <img src={somosa} className="img-2 img" alt="samsosa" />
+      <img
+        src="https://res-console.cloudinary.com/dggryzgok/thumbnails/transform/v1/image/upload/Yl9hdXRvOnByZWRvbWluYW50LGNfcGFkLGhfMzAwLHdfMzAwLGZfanBnLGZsX2xvc3N5LmFueV9mb3JtYXQucHJlc2VydmVfdHJhbnNwYXJlbmN5LnByb2dyZXNzaXZl/v1/UmVzdGF1cmVudEFzc2VzdHMvc2QyZGJuZjNlc2Yzc2dlbGhzcnI=/template_primary"
+        className="img-1 img"
+        alt="Chicken"
+      />
+      <img
+        src="https://res-console.cloudinary.com/dggryzgok/thumbnails/transform/v1/image/upload/Yl9hdXRvOnByZWRvbWluYW50LGNfcGFkLGhfMzAwLHdfMzAwLGZfanBnLGZsX2xvc3N5LmFueV9mb3JtYXQucHJlc2VydmVfdHJhbnNwYXJlbmN5LnByb2dyZXNzaXZl/v1/UmVzdGF1cmVudEFzc2VzdHMvbXI5OGtwOGRkaWx6bnp1cm5pZ2Q=/template_primary"
+        className="img-2 img"
+        alt="samsosa"
+      />
       <img
         src="https://res.cloudinary.com/dggryzgok/image/upload/v1695195020/Landing2.png"
         className="img-3 img"

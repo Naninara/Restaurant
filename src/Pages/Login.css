@@ -24,7 +24,7 @@
   align-items: center;
 }
 
-.login img {
+.login .loginimg {
   width: inherit;
 }
 .data-content {
@@ -40,13 +40,13 @@
   font-size: 16px;
   cursor: pointer;
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 480px) {
   .login {
     flex-wrap: wrap;
     margin: 0px;
     display: flex;
   }
-  .login img {
+  .login .loginimg {
     display: none;
   }
   .login .login-content {

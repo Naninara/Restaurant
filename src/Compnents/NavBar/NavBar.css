@@ -38,6 +38,7 @@ svg {
   text-decoration: none;
   position: relative;
 }
+
 .navbar #links a::after {
   content: "";
   position: absolute;
