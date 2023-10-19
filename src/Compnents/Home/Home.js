@@ -41,12 +41,12 @@ const Home = () => {
   return (
     <div className="home">
       <img
-        src="https://res-console.cloudinary.com/dggryzgok/thumbnails/transform/v1/image/upload/Yl9hdXRvOnByZWRvbWluYW50LGNfcGFkLGhfMzAwLHdfMzAwLGZfanBnLGZsX2xvc3N5LmFueV9mb3JtYXQucHJlc2VydmVfdHJhbnNwYXJlbmN5LnByb2dyZXNzaXZl/v1/UmVzdGF1cmVudEFzc2VzdHMvc2QyZGJuZjNlc2Yzc2dlbGhzcnI=/template_primary"
+        src="https://res.cloudinary.com/dggryzgok/image/upload/v1697641670/RestaurentAssests/sd2dbnf3esf3sgelhsrr.png"
         className="img-1 img"
         alt="Chicken"
       />
       <img
-        src="https://res-console.cloudinary.com/dggryzgok/thumbnails/transform/v1/image/upload/Yl9hdXRvOnByZWRvbWluYW50LGNfcGFkLGhfMzAwLHdfMzAwLGZfanBnLGZsX2xvc3N5LmFueV9mb3JtYXQucHJlc2VydmVfdHJhbnNwYXJlbmN5LnByb2dyZXNzaXZl/v1/UmVzdGF1cmVudEFzc2VzdHMvbXI5OGtwOGRkaWx6bnp1cm5pZ2Q=/template_primary"
+        src="https://res.cloudinary.com/dggryzgok/image/upload/v1697641670/RestaurentAssests/mr98kp8ddilznzurnigd.png"
         className="img-2 img"
         alt="samsosa"
       />

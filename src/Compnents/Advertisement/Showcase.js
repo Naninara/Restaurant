@@ -7,17 +7,17 @@ const ShowCase = () => {
     <div className="showcase">
       <div className="images">
         <img
-          src="https://res-console.cloudinary.com/dggryzgok/thumbnails/transform/v1/image/upload/Yl9hdXRvOnByZWRvbWluYW50LGNfcGFkLGhfMzAwLHdfMzAwLGZfanBnLGZsX2xvc3N5LmFueV9mb3JtYXQucHJlc2VydmVfdHJhbnNwYXJlbmN5LnByb2dyZXNzaXZl/v1/UmVzdGF1cmVudEFzc2VzdHMva2U5dWw4Y3R6cHhqbXpkam5hYTc=/template_primary"
+          src="https://res.cloudinary.com/dggryzgok/image/upload/v1697641670/RestaurentAssests/o2qxbnl0tylvol5wcc4r.png"
           className="image img-11"
           alt="wings"
         />
         <img
-          src="https://res-console.cloudinary.com/dggryzgok/thumbnails/transform/v1/image/upload/Yl9hdXRvOnByZWRvbWluYW50LGNfcGFkLGhfMzAwLHdfMzAwLGZfanBnLGZsX2xvc3N5LmFueV9mb3JtYXQucHJlc2VydmVfdHJhbnNwYXJlbmN5LnByb2dyZXNzaXZl/v1/UmVzdGF1cmVudEFzc2VzdHMvemtmbHVydTZqdXBzbzFncWNnY28=/template_primary"
+          src="https://res.cloudinary.com/dggryzgok/image/upload/f_auto,q_auto/v1/RestaurentAssests/zkfluru6jupso1gqcgco"
           className="image img-33"
           alt="joints"
         />
         <img
-          src="https://res-console.cloudinary.com/dggryzgok/thumbnails/transform/v1/image/upload/Yl9hdXRvOnByZWRvbWluYW50LGNfcGFkLGhfMzAwLHdfMzAwLGZfanBnLGZsX2xvc3N5LmFueV9mb3JtYXQucHJlc2VydmVfdHJhbnNwYXJlbmN5LnByb2dyZXNzaXZl/v1/UmVzdGF1cmVudEFzc2VzdHMvbzJxeGJubDB0eWx2b2w1d2NjNHI=/template_primary"
+          src="https://res.cloudinary.com/dggryzgok/image/upload/v1697641670/RestaurentAssests/plykttmmurplycj2gtak.png"
           className="image img-22"
           alt="tandoori"
         />
