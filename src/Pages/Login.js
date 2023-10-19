@@ -10,7 +10,9 @@ function Login() {
 
   function SubmitLogin() {
     axios
-      .post("http://localhost:3500/auth/login", { ...LoginData })
+      .post("https://restarentbackend.onrender.com/auth/login", {
+        ...LoginData,
+      })
       .then((response) => {
         setLoginResponse(response.data);
       })

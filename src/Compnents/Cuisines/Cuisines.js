@@ -12,7 +12,7 @@ function Cuisines() {
       link: "https://res.cloudinary.com/dggryzgok/image/upload/v1697375981/osi22tfbqkiqjyc3522c.jpg",
     },
     {
-      name: "Bakery",
+      name: "Pizzas",
       link: "https://res.cloudinary.com/dggryzgok/image/upload/v1697375981/oudhixnymwtmg82xogcw.jpg",
     },
 
@@ -34,7 +34,10 @@ function Cuisines() {
       <div className="cuisines">
         {cuisinesArray.map((item) => {
           return (
-            <Link to={`cuisine/${item.name}`}>
+            <Link
+              to={`cuisine/${item.name}`}
+              key={Math.random().toString(36).substring(2, 7)}
+            >
               <img src={item.link} alt="cuisine" />
             </Link>
           );

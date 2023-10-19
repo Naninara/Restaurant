@@ -20,14 +20,15 @@ function Register() {
     }));
   }
 
-  function UserRegister() {
+  function UserRegister(e) {
+    e.preventDefault();
     if (Registartiondata.pass !== Registartiondata.confirmpass) {
       alert("passwords mismatch");
       return;
     }
     const { email, pass, username } = Registartiondata;
     axios
-      .post("http://localhost:3500/signup", {
+      .post("https://restarentbackend.onrender.com/auth/signup", {
         email,
         pass,
         username,

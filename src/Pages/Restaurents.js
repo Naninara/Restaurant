@@ -8,7 +8,7 @@ function Restaurents() {
   const [Restaurents, setRestauRents] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:3500/restarent")
+      .get("https://restarentbackend.onrender.com/restarent")
       .then((response) => {
         setRestauRents(response.data);
       })
