@@ -13,7 +13,7 @@ function Login() {
 
   function SubmitLogin() {
     axios
-      .post("http://localhost:3500/auth/login", {
+      .post("https://restarentbackend.onrender.com/auth/login", {
         ...LoginData,
       })
       .then((response) => {
