@@ -16,7 +16,7 @@ function Menu() {
   }
   useEffect(() => {
     axios
-      .get("http://localhost:3500/menu")
+      .get("https://restarentbackend.onrender.com/menu")
       .then((response) => {
         console.log(response.data);
         setMenuItems(response.data);

@@ -21,7 +21,7 @@ function SingleRestarent() {
   useEffect(
     function () {
       axios
-        .get(`http://localhost:3500/menu/${id}`)
+        .get(`https://restarentbackend.onrender.com/menu/${id}`)
         .then((response) => {
           console.log(response);
           setItem(response.data);
