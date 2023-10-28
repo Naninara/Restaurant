@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import RestarentCard from "../Compnents/Cards/RestarentCard";
+import MenuCard from "../Compnents/Cards/menuCard";
 import WifiLoader from "../Compnents/Loaders/WifiLoader";
 
 function CuisinePage() {
@@ -28,7 +28,7 @@ function CuisinePage() {
       {Restaurents.map((cardItem, index) => {
         return (
           <Link to={`single/${cardItem.id}`} key={index + 1}>
-            <RestarentCard {...cardItem} />
+            <MenuCard {...cardItem} />
           </Link>
         );
       })}

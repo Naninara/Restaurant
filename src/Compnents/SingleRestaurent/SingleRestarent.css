@@ -1,41 +1,41 @@
-.single {
+.item {
   display: flex;
-
+  padding: 3%;
   flex-wrap: wrap;
-
-  gap: 20px;
-
-  margin-top: 50px;
+  gap: 30px;
+  width: 100vw;
+  flex: 2;
 }
-.restaurent-data {
+.item-img {
   display: flex;
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+.item-img img {
+  height: 100%;
   width: 100%;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0px 50px;
-  flex-wrap: wrap;
 }
-.single .data {
+.item-info {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 40px;
+  flex-grow: 0.7;
+  flex-shrink: 1;
 }
-.single h1,
-p {
-  font-family: "Montserrat";
-}
-
-.single h5 {
-  font-family: "Montserrat";
-  margin: 0 50px;
+.item-info .quantityNo {
   font-size: 20px;
+  margin: 0px 10px;
+  font-family: Montserrat;
+  font-weight: 600;
 }
-
-@media screen and (max-width: 450px) {
-  .restaurent-data {
-    margin: 0px 10px;
-  }
-  .single h5 {
-    margin: 0px 10px;
-  }
+.item-info .addToCartButton {
+  background: #ff5733;
+  font-family: Montserrat;
+}
+.item-info .addToCartButton:hover {
+  background: #000;
+}
+.item-info h1,
+h2 {
+  font-family: Montserrat;
 }

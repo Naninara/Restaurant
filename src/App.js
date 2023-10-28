@@ -5,10 +5,12 @@ import "./App.css";
 import Navbar from "./Compnents/NavBar/Navbar";
 
 import HomePage from "./Pages/HomePage";
-import Restaurents from "./Pages/Restaurents";
+import Menu from "./Pages/Menu";
 import Register from "./Pages/Register";
 import SingleRestarent from "./Compnents/SingleRestaurent/SingleRestarent";
 import CuisinePage from "./Pages/CuisinePage";
+import Cart from "./Pages/Cart";
+
 const Layout = () => {
   return (
     <div className="App">
@@ -28,8 +30,8 @@ const router = createBrowserRouter([
         element: <HomePage />,
       },
       {
-        path: "/restarents",
-        element: <Restaurents />,
+        path: "/menu",
+        element: <Menu />,
       },
       {
         path: "/login",
@@ -40,7 +42,7 @@ const router = createBrowserRouter([
         element: <Register />,
       },
       {
-        path: "restarents/single/:id",
+        path: "Menu/single/:id",
         element: <SingleRestarent />,
       },
       {
@@ -50,6 +52,10 @@ const router = createBrowserRouter([
       {
         path: "cuisine/:name/single/:id",
         element: <SingleRestarent />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
   },

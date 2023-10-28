@@ -1,0 +1,13 @@
+.empty-cart {
+  height: 50vh;
+  width: 100vw;
+}
+svg {
+  height: inherit;
+  width: inherit;
+}
+.empty-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

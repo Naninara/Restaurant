@@ -59,3 +59,21 @@
   align-items: center;
   gap: 10px;
 }
+
+.costDiv {
+  display: "flex";
+  align-items: center;
+}
+
+.costDiv .mrp {
+  text-decoration: line-through;
+  margin-left: 10px;
+}
+
+.type {
+  font-family: Montserrat;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}

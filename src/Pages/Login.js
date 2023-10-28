@@ -4,18 +4,24 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./Login.css";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { login } from "../Redux/UserSlice";
 function Login() {
   const [LoginData, setLoginData] = useState({ email: "", pass: "" });
   const [loginResponse, setLoginResponse] = useState(null);
+  const dispatch = useDispatch();
 
   function SubmitLogin() {
     axios
-      .post("https://restarentbackend.onrender.com/auth/login", {
+      .post("http://localhost:3500/auth/login", {
         ...LoginData,
       })
       .then((response) => {
+        const { name, gmail } = response.data;
+        dispatch(login({ name: name, email: gmail }));
         setLoginResponse(response.data);
       })
+
       .catch((err) => {
         if (!err.response) {
           setLoginResponse({ msg: "something Wrong From our side " });

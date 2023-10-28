@@ -1,0 +1,24 @@
+.restarents {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 50px;
+  margin-top: 80px;
+}
+.restarents a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.filter-btns {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.filter-btns span {
+  font-family: Montserrat;
+  font-weight: 600;
+}
