@@ -24,7 +24,7 @@ const About = () => {
           About <span style={{ color: "#FF5733" }}>Us</span>
         </h1>
         <img
-          src="https://res-console.cloudinary.com/dggryzgok/thumbnails/transform/v1/image/upload/Yl9hdXRvOnByZWRvbWluYW50LGNfcGFkLGhfMzAwLHdfMzAwLGZfanBnLGZsX2xvc3N5LmFueV9mb3JtYXQucHJlc2VydmVfdHJhbnNwYXJlbmN5LnByb2dyZXNzaXZl/v1/UmVzdGF1cmVudEFzc2VzdHMvcHc2Z3hyczhqcnNuOW14cGRjbmM=/template_primary"
+          src="https://res.cloudinary.com/dggryzgok/image/upload/v1697298916/Restarent%20Assests/q1c9ytlxsot0m2zyjc3i.png"
           className="burger"
           alt="burger"
         />
