@@ -10,6 +10,9 @@ import Register from "./Pages/Register";
 import SingleRestarent from "./Compnents/SingleRestaurent/SingleRestarent";
 import CuisinePage from "./Pages/CuisinePage";
 import Cart from "./Pages/Cart";
+import Orders from "./Pages/Orders";
+import ChangePass from "./Pages/ChangePass";
+import Address from "./Pages/Address";
 
 const Layout = () => {
   return (
@@ -56,6 +59,18 @@ const router = createBrowserRouter([
       {
         path: "/cart",
         element: <Cart />,
+      },
+      {
+        path: "/order",
+        element: <Orders />,
+      },
+      {
+        path: "/changepassword",
+        element: <ChangePass />,
+      },
+      {
+        path: "/address",
+        element: <Address />,
       },
     ],
   },

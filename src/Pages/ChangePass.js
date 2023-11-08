@@ -3,14 +3,13 @@ import axios from "axios";
 import React, { useState } from "react";
 import LogoImage from "../Assets/Login.png";
 
-import "./Login.css";
-function Register() {
+function ChangePass() {
   const [userCreation, setUserCreation] = useState({ message: "", action: "" });
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [Registartiondata, setRegistartiondata] = useState({
     email: "",
-    username: "",
-    pass: "",
+    prevpass: "",
+    newpass: "",
     confirmpass: "",
   });
 
@@ -24,29 +23,30 @@ function Register() {
 
   function UserRegister(e) {
     e.preventDefault();
-    if (Registartiondata.pass !== Registartiondata.confirmpass) {
+    if (Registartiondata.newpass !== Registartiondata.confirmpass) {
       setUserCreation({ message: "Passwords mismatch", action: "warning" });
       setSnackbarOpen(true);
       return;
     }
-    const { email, pass, username } = Registartiondata;
+    const { email, prevpass, newpass } = Registartiondata;
     axios
-      .post("https://restarentbackend.onrender.com/auth/signup", {
+      .patch("http://localhost:3500/forgot", {
         email,
-        pass,
-        username,
+        prevpass,
+        newpass,
       })
       .then((response) => {
         setUserCreation({
-          message: "User Created Proceed to Login",
+          message: response.data.msg,
           action: "success",
         });
         setSnackbarOpen(true);
       })
       .catch((err) => {
+        console.log(err);
         if (err.response) {
           setUserCreation({
-            message: "User Already Exist",
+            message: err.response.data.msg,
             action: "error",
           });
           setSnackbarOpen(true);
@@ -90,15 +90,6 @@ function Register() {
                 Welcome to Foodier
               </Typography>
             </div>
-            <Typography
-              variant="span"
-              color="#5D5D5D"
-              fontSize={"24px"}
-              fontWeight="400"
-              fontFamily="Montserrat"
-            >
-              We Deliver your Hunger
-            </Typography>
 
             <Typography
               variant="span"
@@ -129,16 +120,17 @@ function Register() {
               fontWeight="700"
               fontFamily="Montserrat"
             >
-              Your Name
+              Previous Password
             </Typography>
 
             <TextField
               className="input-text"
-              label="Enter your name"
+              label="Previous Password"
               variant="outlined"
               size="small"
               type="text"
-              name="username"
+              name="prevpass"
+              required
               onChange={(e) => {
                 handleChange(e);
               }}
@@ -160,7 +152,8 @@ function Register() {
               variant="outlined"
               size="small"
               type="password"
-              name="pass"
+              name="newpass"
+              required
               onChange={(e) => {
                 handleChange(e);
               }}
@@ -185,11 +178,12 @@ function Register() {
               onChange={(e) => {
                 handleChange(e);
               }}
+              required
             ></TextField>
 
             <div className="button-div">
               <button className="btn" onClick={UserRegister} type="submit">
-                Sign Up
+                Update Password
               </button>
             </div>
           </div>
@@ -202,4 +196,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default ChangePass;

@@ -9,6 +9,7 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
+  gap: 10px;
 }
 .cart-item .cart-img {
   display: flex;
@@ -39,4 +40,10 @@
   font-size: 20px;
   font-family: Montserrat;
   cursor: pointer;
+}
+
+.item-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }

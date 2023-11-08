@@ -9,7 +9,7 @@ function CuisinePage() {
   const { name } = useParams();
   useEffect(() => {
     axios
-      .get(`https://restarentbackend.onrender.com/cuisine/${name}`)
+      .get(`http://localhost:3500/cuisine/${name}`)
       .then((response) => {
         setRestauRents(response.data);
       })

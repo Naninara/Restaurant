@@ -1,4 +1,4 @@
-import { TextField, Typography } from "@mui/material";
+import { Alert, Snackbar, TextField, Typography } from "@mui/material";
 import LogoImage from "../Assets/Login.png";
 import React, { useState } from "react";
 import axios from "axios";
@@ -8,9 +8,9 @@ import { useDispatch } from "react-redux";
 import { login } from "../Redux/UserSlice";
 function Login() {
   const [LoginData, setLoginData] = useState({ email: "", pass: "" });
-  const [loginResponse, setLoginResponse] = useState(null);
+  const [loginResponse, setLoginResponse] = useState({ msg: "", action: "" });
   const dispatch = useDispatch();
-
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
   function SubmitLogin() {
     axios
       .post("https://restarentbackend.onrender.com/auth/login", {
@@ -19,22 +19,46 @@ function Login() {
       .then((response) => {
         const { name, gmail } = response.data;
         dispatch(login({ name: name, email: gmail }));
-        setLoginResponse(response.data);
+        setLoginResponse({ msg: "logged in sucessfully", action: "success" });
+        setSnackbarOpen(true);
+        window.history.back();
       })
 
       .catch((err) => {
         if (!err.response) {
-          setLoginResponse({ msg: "something Wrong From our side " });
+          setLoginResponse({
+            msg: "something Wrong From our side",
+            action: "danger",
+          });
         }
         if (err.response && err.response.status === 401) {
-          setLoginResponse({ msg: "Invalid Credintials" });
+          setLoginResponse({ msg: "Invalid credentials", action: "error" });
         }
+        setSnackbarOpen(true);
       });
   }
   return (
     <div className="login">
       <div className="login-content">
         <div className="data-content">
+          <Snackbar
+            message={"logged in sucessfully"}
+            anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+            open={snackbarOpen}
+            autoHideDuration={3000}
+            onClose={() => {
+              setSnackbarOpen(false);
+            }}
+          >
+            <Alert
+              severity={
+                loginResponse.action !== "" ? loginResponse.action : "success"
+              }
+            >
+              {loginResponse.msg}
+            </Alert>
+          </Snackbar>
+
           <Typography
             variant="span"
             color="#000000"

@@ -23,7 +23,7 @@ const ShowCase = () => {
         />
       </div>
       <div className="order-now">
-        <Link to="/restarents">
+        <Link to="/menu">
           <button className="btn">Order Now</button>
         </Link>
       </div>

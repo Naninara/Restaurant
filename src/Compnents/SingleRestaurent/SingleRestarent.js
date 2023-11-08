@@ -23,12 +23,9 @@ function SingleRestarent() {
       axios
         .get(`https://restarentbackend.onrender.com/menu/${id}`)
         .then((response) => {
-          console.log(response);
           setItem(response.data);
         })
-        .catch((err) => {
-          console.log(err);
-        });
+        .catch((err) => {});
     },
     [id]
   );
