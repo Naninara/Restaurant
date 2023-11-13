@@ -1,0 +1,30 @@
+.model-container {
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.box-model {
+  background-color: #ffff;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 50px;
+  width: 40vw;
+  padding: 7%;
+  border-radius: 70px;
+}
+
+.emoji svg {
+  font-size: 70px;
+  color: #ff5733;
+}
+
+.box-model h4 {
+  font-family: Montserrat;
+  align-self: auto;
+}

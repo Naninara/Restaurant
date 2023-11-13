@@ -5,14 +5,63 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React from "react";
-import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import ResponseModel from "../Compnents/Models/ResponseModel";
+import { clear } from "../Redux/CartSlice";
+
 import Login from "./Login";
 
 function Address() {
+  const dispatch = useDispatch();
   const login = useSelector((state) => state.allreducers.user.email);
-  const navigate = useNavigate();
+  const cart = useSelector((state) => state.allreducers.cart);
+  const [modelOpen, setModelOpen] = useState(false);
+  const [modelData, setModelData] = useState({});
+
+  const [adressData, setaddressData] = useState({});
+  const [wholeTotal, setWholeTotal] = useState(0);
+  useEffect(() => {
+    const total = cart.reduce((total, ele) => {
+      return (total += ele.quantity * ele.cost);
+    }, 0);
+    setWholeTotal(total);
+  }, [cart]);
+  function placeOrder() {
+    if (!adressData.phoneNumber || !adressData.name || !adressData.address) {
+      alert("Please fill All the details");
+      return;
+    }
+    axios
+      .post("http://localhost:3500/orders/placeorder", {
+        email: login,
+        orderItems: cart,
+        OrderCost: wholeTotal,
+        Address: adressData,
+      })
+      .then((response) => {
+        dispatch(clear());
+        setModelOpen(true);
+        setModelData({
+          EmojiCode: "success",
+          ModelText: `Order Placed Succesfully `,
+          navigateLink: "/order",
+          ButtonText: "Go To Orders",
+        });
+      })
+      .catch((err) => {
+        if (!err.status) {
+          setModelOpen(true);
+          setModelData({
+            EmojiCode: "fail",
+            ModelText: `Couldn't place order `,
+            navigateLink: "/address",
+            ButtonText: "Click here place order again",
+          });
+        }
+      });
+  }
   return !login ? (
     <Login />
   ) : (
@@ -56,6 +105,12 @@ function Address() {
           variant="outlined"
           size="small"
           type="email"
+          onChange={(e) =>
+            setaddressData((prevState) => ({
+              ...prevState,
+              name: e.target.value,
+            }))
+          }
         ></TextField>
         <Typography
           variant="span"
@@ -73,6 +128,12 @@ function Address() {
           variant="outlined"
           size="small"
           type="text"
+          onChange={(e) =>
+            setaddressData((prevState) => ({
+              ...prevState,
+              phoneNumber: e.target.value,
+            }))
+          }
         ></TextField>
         <Typography
           variant="span"
@@ -92,6 +153,12 @@ function Address() {
           variant="outlined"
           size="small"
           type="text"
+          onChange={(e) =>
+            setaddressData((prevState) => ({
+              ...prevState,
+              address: e.target.value,
+            }))
+          }
         ></TextField>
         <Typography
           variant="span"
@@ -127,9 +194,12 @@ function Address() {
         </div>
 
         <div className="button-div">
-          <button className="btn">Place Order</button>
+          <button className="btn" onClick={placeOrder} type="submit">
+            Place Order
+          </button>
         </div>
       </div>
+      <ResponseModel open={modelOpen} setOpen={setModelOpen} {...modelData} />
     </div>
   );
 }
