@@ -9,7 +9,7 @@ function SingleOrder() {
   useEffect(
     function () {
       axios
-        .get(`http://localhost:3500/orders/single/${id}`)
+        .get(`https://restarentbackend.onrender.com/orders/single/${id}`)
         .then((response) => {
           setData(response.data);
         })
