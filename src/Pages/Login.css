@@ -57,3 +57,18 @@
     font-size: 20px;
   }
 }
+
+.loader-div {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader-div span {
+  font-family: Montserrat;
+  font-weight: 500;
+}

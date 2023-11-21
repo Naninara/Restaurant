@@ -6,12 +6,16 @@ import "./Login.css";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { login } from "../Redux/UserSlice";
+import CircularProgress from "@mui/material/CircularProgress";
 function Login() {
   const [LoginData, setLoginData] = useState({ email: "", pass: "" });
   const [loginResponse, setLoginResponse] = useState({ msg: "", action: "" });
   const dispatch = useDispatch();
   const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
   function SubmitLogin() {
+    setLoading(true);
+    setSnackbarOpen(true);
     axios
       .post("https://restarentbackend.onrender.com/auth/login", {
         ...LoginData,
@@ -20,7 +24,7 @@ function Login() {
         const { name, gmail } = response.data;
         dispatch(login({ name: name, email: gmail }));
         setLoginResponse({ msg: "logged in sucessfully", action: "success" });
-        setSnackbarOpen(true);
+        setLoading(false);
         window.history.back();
       })
 
@@ -34,7 +38,7 @@ function Login() {
         if (err.response && err.response.status === 401) {
           setLoginResponse({ msg: "Invalid credentials", action: "error" });
         }
-        setSnackbarOpen(true);
+        setLoading(false);
       });
   }
   return (
@@ -45,18 +49,22 @@ function Login() {
             message={"logged in sucessfully"}
             anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
             open={snackbarOpen}
-            autoHideDuration={3000}
+            autoHideDuration={10000}
             onClose={() => {
               setSnackbarOpen(false);
             }}
           >
-            <Alert
-              severity={
-                loginResponse.action !== "" ? loginResponse.action : "success"
-              }
-            >
-              {loginResponse.msg}
-            </Alert>
+            {loading ? (
+              <CircularProgress />
+            ) : (
+              <Alert
+                severity={
+                  loginResponse.action !== "" ? loginResponse.action : "success"
+                }
+              >
+                {loginResponse.msg}
+              </Alert>
+            )}
           </Snackbar>
 
           <Typography

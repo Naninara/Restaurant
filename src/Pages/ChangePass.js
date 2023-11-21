@@ -1,4 +1,10 @@
-import { Alert, Snackbar, TextField, Typography } from "@mui/material";
+import {
+  Alert,
+  CircularProgress,
+  Snackbar,
+  TextField,
+  Typography,
+} from "@mui/material";
 import axios from "axios";
 import React, { useState } from "react";
 import LogoImage from "../Assets/Login.png";
@@ -12,7 +18,7 @@ function ChangePass() {
     newpass: "",
     confirmpass: "",
   });
-
+  const [loading, setLoading] = useState(false);
   function handleChange(e) {
     const { name, value } = e.target;
     setRegistartiondata((Registartiondata) => ({
@@ -29,13 +35,16 @@ function ChangePass() {
       return;
     }
     const { email, prevpass, newpass } = Registartiondata;
+    setLoading(true);
+    setSnackbarOpen(true);
     axios
-      .patch("http://localhost:3500/forgot", {
+      .patch("https://restarentbackend.onrender.com/forgot", {
         email,
         prevpass,
         newpass,
       })
       .then((response) => {
+        setLoading(false);
         setUserCreation({
           message: response.data.msg,
           action: "success",
@@ -43,19 +52,17 @@ function ChangePass() {
         setSnackbarOpen(true);
       })
       .catch((err) => {
-        console.log(err);
+        setLoading(false);
         if (err.response) {
           setUserCreation({
             message: err.response.data.msg,
             action: "error",
           });
-          setSnackbarOpen(true);
         } else {
           setUserCreation({
             message: "Server is not running",
             action: "error",
           });
-          setSnackbarOpen(true);
         }
       });
   }
@@ -65,16 +72,20 @@ function ChangePass() {
       <Snackbar
         anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
         open={snackbarOpen}
-        autoHideDuration={3000}
+        autoHideDuration={10000}
         onClose={() => {
           setSnackbarOpen(false);
         }}
       >
-        <Alert
-          severity={userCreation.action !== "" ? userCreation.action : "info"}
-        >
-          {userCreation.message}
-        </Alert>
+        {loading ? (
+          <CircularProgress />
+        ) : (
+          <Alert
+            severity={userCreation.action !== "" ? userCreation.action : "info"}
+          >
+            {userCreation.message}
+          </Alert>
+        )}
       </Snackbar>
       <form>
         <div className="login">

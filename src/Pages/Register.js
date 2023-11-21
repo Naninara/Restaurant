@@ -1,4 +1,10 @@
-import { Alert, Snackbar, TextField, Typography } from "@mui/material";
+import {
+  Alert,
+  CircularProgress,
+  Snackbar,
+  TextField,
+  Typography,
+} from "@mui/material";
 import axios from "axios";
 import React, { useState } from "react";
 import LogoImage from "../Assets/Login.png";
@@ -7,6 +13,7 @@ import "./Login.css";
 function Register() {
   const [userCreation, setUserCreation] = useState({ message: "", action: "" });
   const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [Registartiondata, setRegistartiondata] = useState({
     email: "",
     username: "",
@@ -29,6 +36,8 @@ function Register() {
       setSnackbarOpen(true);
       return;
     }
+    setSnackbarOpen(true);
+    setLoading(true);
     const { email, pass, username } = Registartiondata;
     axios
       .post("https://restarentbackend.onrender.com/auth/signup", {
@@ -37,25 +46,24 @@ function Register() {
         username,
       })
       .then((response) => {
+        setLoading(false);
         setUserCreation({
           message: "User Created Proceed to Login",
           action: "success",
         });
-        setSnackbarOpen(true);
       })
       .catch((err) => {
+        setLoading(false);
         if (err.response) {
           setUserCreation({
             message: "User Already Exist",
             action: "error",
           });
-          setSnackbarOpen(true);
         } else {
           setUserCreation({
             message: "Server is not running",
             action: "error",
           });
-          setSnackbarOpen(true);
         }
       });
   }
@@ -65,16 +73,20 @@ function Register() {
       <Snackbar
         anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
         open={snackbarOpen}
-        autoHideDuration={3000}
+        autoHideDuration={10000}
         onClose={() => {
           setSnackbarOpen(false);
         }}
       >
-        <Alert
-          severity={userCreation.action !== "" ? userCreation.action : "info"}
-        >
-          {userCreation.message}
-        </Alert>
+        {loading ? (
+          <CircularProgress />
+        ) : (
+          <Alert
+            severity={userCreation.action !== "" ? userCreation.action : "info"}
+          >
+            {userCreation.message}
+          </Alert>
+        )}
       </Snackbar>
       <form>
         <div className="login">
