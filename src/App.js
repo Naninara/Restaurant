@@ -14,6 +14,8 @@ import Orders from "./Pages/Orders";
 import ChangePass from "./Pages/ChangePass";
 import Address from "./Pages/Address";
 
+import SingleOrder from "./Pages/SingleOrder";
+
 const Layout = () => {
   return (
     <div className="App">
@@ -63,6 +65,10 @@ const router = createBrowserRouter([
       {
         path: "/order",
         element: <Orders />,
+      },
+      {
+        path: "/order/:id",
+        element: <SingleOrder />,
       },
       {
         path: "/changepassword",

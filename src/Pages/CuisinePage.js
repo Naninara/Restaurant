@@ -6,14 +6,17 @@ import WifiLoader from "../Compnents/Loaders/WifiLoader";
 
 function CuisinePage() {
   const [Restaurents, setRestauRents] = useState([]);
+  const [response, setResponse] = useState(false);
   const { name } = useParams();
   useEffect(() => {
     axios
-      .get(`http://localhost:3500/cuisine/${name}`)
+      .get(`https://restarentbackend.onrender.com/cuisine/${name}`)
       .then((response) => {
         setRestauRents(response.data);
+        setResponse(true);
       })
       .catch((err) => {
+        setResponse(true);
         if (!err.response) {
           alert("server not working");
         } else {
@@ -21,8 +24,12 @@ function CuisinePage() {
         }
       });
   }, [name]);
-  return Restaurents.length === 0 ? (
+  return !response ? (
     <WifiLoader />
+  ) : response && Restaurents.length === 0 ? (
+    <h1 style={{ textAlign: "center", fontFamily: "Montserrat" }}>
+      We Are Adding Soon..... ☺️
+    </h1>
   ) : (
     <div className="restarents">
       {Restaurents.map((cardItem, index) => {

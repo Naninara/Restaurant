@@ -34,7 +34,7 @@ function Address() {
       return;
     }
     axios
-      .post("http://localhost:3500/orders/placeorder", {
+      .post("https://restarentbackend.onrender.com/orders/placeorder", {
         email: login,
         orderItems: cart,
         OrderCost: wholeTotal,

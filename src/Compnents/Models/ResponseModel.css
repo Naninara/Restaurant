@@ -28,3 +28,9 @@
   font-family: Montserrat;
   align-self: auto;
 }
+
+@media screen and (max-width: 480px) {
+  .box-model {
+    width: 95vw;
+  }
+}

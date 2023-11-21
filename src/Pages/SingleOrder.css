@@ -1,0 +1,15 @@
+.single-order {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.single-order h1 {
+  font-family: Montserrat;
+  color: #ff5733;
+}
+
+.orderData {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 import "./SingleRestarent.css";
 import { useDispatch } from "react-redux";
 import { add } from "../../Redux/CartSlice";
+import WifiLoader from "../Loaders/WifiLoader";
 
 function SingleRestarent() {
   const { id } = useParams();
@@ -25,55 +26,57 @@ function SingleRestarent() {
         .then((response) => {
           setItem(response.data);
         })
-        .catch((err) => {});
+        .catch((err) => {
+          alert("something went wrong kindly refresh the page");
+        });
     },
     [id]
   );
-  return (
-    item && (
-      <div className="item">
-        <div className="item-img">
-          <img
-            src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_220,w_310,h_220/${item.cloudinaryImageId}`}
-            alt="itemImage"
-          />
-        </div>
-        <div className="item-info">
-          <h1>Name: {item.name}</h1>
-          <h2>Price : Rs. {item.cost} </h2>
-          <div className="quantity">
-            <button
-              className="btn"
-              onClick={() => {
-                updateQuantity(true);
-              }}
-            >
-              +
-            </button>
-            <span className="quantityNo">{quantity} No.</span>
-            <button
-              className="btn"
-              onClick={() => {
-                if (quantity > 1) updateQuantity(false);
-              }}
-            >
-              -
-            </button>
-          </div>
-
-          <Button
-            variant="contained"
-            className="addToCartButton"
-            endIcon={<ShoppingCart />}
+  return !item ? (
+    <WifiLoader />
+  ) : (
+    <div className="item">
+      <div className="item-img">
+        <img
+          src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_220,w_310,h_220/${item.cloudinaryImageId}`}
+          alt="itemImage"
+        />
+      </div>
+      <div className="item-info">
+        <h1>Name: {item.name}</h1>
+        <h2>Price : Rs. {item.cost} </h2>
+        <div className="quantity">
+          <button
+            className="btn"
             onClick={() => {
-              dispatch(add({ ...item, quantity }));
+              updateQuantity(true);
             }}
           >
-            Add To Cart
-          </Button>
+            +
+          </button>
+          <span className="quantityNo">{quantity} No.</span>
+          <button
+            className="btn"
+            onClick={() => {
+              if (quantity > 1) updateQuantity(false);
+            }}
+          >
+            -
+          </button>
         </div>
+
+        <Button
+          variant="contained"
+          className="addToCartButton"
+          endIcon={<ShoppingCart />}
+          onClick={() => {
+            dispatch(add({ ...item, quantity }));
+          }}
+        >
+          Add To Cart
+        </Button>
       </div>
-    )
+    </div>
   );
 }
 
