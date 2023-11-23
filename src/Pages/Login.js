@@ -49,7 +49,7 @@ function Login() {
             message={"logged in sucessfully"}
             anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
             open={snackbarOpen}
-            autoHideDuration={10000}
+            autoHideDuration={20000}
             onClose={() => {
               setSnackbarOpen(false);
             }}
