@@ -7,6 +7,7 @@ function MenuCard({ name, cost, cloudinaryImageId, type }) {
         <img
           src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_220,w_310,h_220/${cloudinaryImageId}`}
           alt="card"
+          loading="lazy"
         />
         <div className="card-details">
           <div className="name">

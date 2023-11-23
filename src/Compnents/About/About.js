@@ -27,6 +27,7 @@ const About = () => {
           src="https://res.cloudinary.com/dggryzgok/image/upload/v1697298916/Restarent%20Assests/q1c9ytlxsot0m2zyjc3i.png"
           className="burger"
           alt="burger"
+          loading="lazy"
         />
       </div>
       <div className="right">

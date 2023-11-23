@@ -72,7 +72,6 @@ function ChangePass() {
       <Snackbar
         anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
         open={snackbarOpen}
-        autoHideDuration={20000}
         onClose={() => {
           setSnackbarOpen(false);
         }}
