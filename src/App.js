@@ -15,6 +15,7 @@ import ChangePass from "./Pages/ChangePass";
 import Address from "./Pages/Address";
 
 import SingleOrder from "./Pages/SingleOrder";
+import Error from "./Pages/Error";
 
 const Layout = () => {
   return (
@@ -29,6 +30,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
+    errorElement: <Error />,
     children: [
       {
         path: "/",
